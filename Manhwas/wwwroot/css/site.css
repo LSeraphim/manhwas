@@ -20,3 +20,8 @@
 .cursor-pointer {
     cursor: pointer;
 }
+
+.sabermais {
+    position: absolute;
+    top: 70vh;
+}
