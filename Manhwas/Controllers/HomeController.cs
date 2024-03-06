@@ -16,36 +16,16 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        List<Manhwa> manhwas = [];
-        using (StreamReader leitor = new("Data\\manhwas.json"))
-        {
-            string dados = leitor.ReadToEnd();
-            manhwas = JsonSerializer.Deserialize<List<Manhwa>>(dados);
-        }
-        List<Genero> generos = [];
-        using (StreamReader leitor = new("Data\\generos.json"))
-        {
-            string dados = leitor.ReadToEnd();
-            generos = JsonSerializer.Deserialize<List<Genero>>(dados);
-        }
+        List<Manhwa> manhwas = GetManhwas();
+        List<Genero> generos = GetGeneros();
         ViewData["Generos"] = generos;
         return View(manhwas);
     }
 
     public IActionResult Details(int id) 
     {
-        List<Manhwa> manhwas = [];
-        using(StreamReader leitor = new("Data\\manhwas.json"))
-        {
-            string dados = leitor.ReadToEnd();
-            manhwas = JsonSerializer.Deserialize<List<Manhwa>>(dados);
-        }
-        List<Genero> generos = [];
-        using (StreamReader leitor = new("Data\\generos.json"))
-        {
-            string dados = leitor.ReadToEnd();
-            generos = JsonSerializer.Deserialize<List<Genero>>(dados);
-        }
+        List<Manhwa> manhwas = GetManhwas();
+        List<Genero> generos = GetGeneros();
         DetailsVM details = new() {
             Generos = generos,
             Atual = manhwas.FirstOrDefault(m => m.Numero == id),
@@ -53,6 +33,25 @@ public class HomeController : Controller
             Proximo = manhwas.OrderBy(m => m.Numero).FirstOrDefault(m => m.Numero > id),
         };
         return View(details);
+    }
+
+    private List<Manhwa> GetManhwas()
+    {
+        using (StreamReader leitor = new("Data\\manhwas.json"))
+        {
+            string dados = leitor.ReadToEnd();
+            return JsonSerializer.Deserialize<List<Manhwa>>(dados);
+        }
+    }
+
+    
+    private List<Genero> GetGeneros()
+    {
+        using (StreamReader leitor = new("Data\\generos.json"))
+        {
+            string dados = leitor.ReadToEnd();
+            return JsonSerializer.Deserialize<List<Genero>>(dados);
+        }
     }
 
     public IActionResult Privacy()
