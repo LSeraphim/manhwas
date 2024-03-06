@@ -1,0 +1,22 @@
+.card {
+    width: 20vw;
+    height: 80vh;
+}
+
+.card img {
+    background-color: lightgray;
+    width: 20vw;
+    height: 50vh;
+}
+
+.card:hover {
+    border: 3px solid rgb(0, 204, 255);
+    transform: scale(1.15);
+    transition: 1s;
+    z-index: 1000;
+    display: block;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

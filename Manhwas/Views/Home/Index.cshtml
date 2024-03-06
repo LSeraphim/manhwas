@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Manhwa>
+@{ 
+    ViewData["Title"] = "Home";
+    var generos = (List<Genero>)ViewData["Generos"];
+        string Cor(string nome)
+        {
+            return generos
+                .Where(g => g.Nome == nome)
+                .Select(g => g.Cor)
+                .FirstOrDefault();
+        }
+}
+
+<section class="pt-5 pb-3 text-center container">
+    <div class="row">
+        <div class="col mx-auto">
+            <h1>Manhwas</h1>
+            <div class="group">
+                <button id="btn-all" class="btn btn-md my-2 text-white bg-dark btn-filter" onclick="filter('all')">
+                    Ver Todos
+                </button>
+                @foreach (var genero in generos)
+                {
+                    <button id="btn" class="btn btn-sm my-2 text-white btn-filter"
+                        style="background-color:@genero.Cor" onclick="filter('@genero.Nome')">
+                        @genero.Nome
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+
+            @foreach (var manhwa in Model)
+            {
+
+                <!-- Card Pokemon - Inicio -->
+                <div class="col" onclick="window.location = '/Home/Details/@manhwa.Numero'">
+                    <div class="card shadow-sm cursor-pointer @string.Join(' ', manhwa.Genero)">
+                        <img src="@manhwa.Imagem" class="card-img-top" width="100%" height="300"
+                            alt="@manhwa.Nome" />
+                        <div class="card-body">
+                            <p class="card-text mb-0">N° @manhwa.Numero.ToString("000")</p>
+                            <h3 class="card-title">@manhwa.Nome</h3>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="#" class="btn my-2 text-white" style="background-color:black">Saber Mais</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Pokemon - Fim -->
+            }
+
+
+
+            <div id="zeroManhwa" class="col-lg-12 text-center" >
+                <h1 class="my-3 text-danger">Nenhum Manhwa Encontrado</h1>
+            </div>
+        </div>
+
+
+    </div>
+</div>

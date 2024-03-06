@@ -1,0 +1,56 @@
+[
+    {
+      "Nome": "Shounen",
+      "Cor": "#89f"
+    },
+    {
+      "Nome": "Ação",
+      "Cor": "#39f"
+    },
+    {
+      "Nome": "Fantasia",
+      "Cor": "#76e"
+    },
+    {
+      "Nome": "Aventura",
+      "Cor": "#fc3"
+    },
+    {
+      "Nome": "Sobrenatural",
+      "Cor": "#e9e"
+    },
+    {
+      "Nome": "Escolar",
+      "Cor": "#66b"
+    },
+    {
+      "Nome": "Artes Marciais",
+      "Cor": "#f42"
+    },
+    {
+      "Nome": "Romance",
+      "Cor": "#6cf"
+    },
+    {
+      "Nome": "Drama",
+      "Cor": "#ab6"
+    },
+    {
+      "Nome": "Psicológico",
+      "Cor": "#ba6"
+    },
+    
+    {
+      "Nome": "Slice of Life",
+      "Cor": "#7c5"
+    },
+    {
+      "Nome": "Comédia",
+      "Cor": "#bab607"
+    },
+
+    {
+      "Nome": "Seinen",
+      "Cor": "#102822"
+    }
+  ]
