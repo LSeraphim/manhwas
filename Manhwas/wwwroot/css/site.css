@@ -28,11 +28,21 @@
 
 
 .background-index {
-    background-color: #292b2c;
+    background-color: #212529;
     box-shadow: -5px 0 10px #000;
 }
 
 #navbarHeaderr {
     background-color: #292b2c;
     box-shadow: 10px 0 10px #000;
+}
+
+.bg-header {
+    background-color: #212529;
+}
+
+.btn-md:hover {
+    transform: scale(1.15);
+    transition: 0.8s;
+    z-index: 1000;
 }

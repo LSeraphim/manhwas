@@ -18,7 +18,7 @@
                 </button>
                 @foreach (var genero in generos)
                 {
-                    <button id="btn" class="btn btn-sm my-2 text-white btn-filter"
+                    <button id="btn-@genero.Nome" class="btn btn-sm my-2 text-white btn-filter"
                         style="background-color:@genero.Cor" onclick="filter('@genero.Nome')">
                         @genero.Nome
                     </button>
